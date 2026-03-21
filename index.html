@@ -1,17 +1,25 @@
 <!DOCTYPE html>
+<!-- Document: HTML5; lang helps screen readers and font rendering. -->
 <html lang="en">
 <head>
+    <!-- Charset + viewport: required for correct text and mobile scaling. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing Plans — HTML version</title>
+
+    <!-- Fonts: preconnect speeds Google Fonts; Inter is the UI typeface. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Page chrome: fixed label; not part of the pricing cards. -->
     <p class="page-label"><strong>HTML version</strong> — static markup</p>
+
+    <!-- Layout: horizontal row of cards; spacing lives in CSS (gap). -->
     <div class="cards-container">
+        <!-- Card: one pricing tier; column = title → price → list → CTA. -->
         <div class="card">
             <div class="card-top">
                 <h3 class="card-title">Hobby</h3>
@@ -36,8 +44,10 @@
                     </ul>
                 </div>
             </div>
+            <!-- CTA: .secondary = neutral pill; primary variant on Pro card. -->
             <button class="download-button secondary">Download</button>
         </div>
+
         <div class="card">
             <div class="card-top">
                 <h3 class="card-title">Pro</h3>
@@ -68,6 +78,38 @@
                 </div>
             </div>
             <button class="download-button primary">Get Pro</button>
+        </div>
+
+        <!-- Same pattern as Hobby/Pro: copy a .card block and swap title, price, list, CTA. -->
+        <div class="card">
+            <div class="card-top">
+                <h3 class="card-title">Enterprise</h3>
+                <p class="card-price">
+                    <span class="card-price-amount">Custom</span>
+                </p>
+                <div class="card-content">
+                    <p class="includes-text">Everything in Pro, plus:</p>
+                    <ul class="features-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            SSO and SCIM provisioning
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Org-wide usage and admin controls
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Priority support and onboarding
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Invoice billing and custom terms
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="download-button secondary">Contact sales</button>
         </div>
     </div>
 </body>
