@@ -152,6 +152,16 @@ body {
 .download-button.primary:active {
     background-color: #333;
 }
+.download-button.tertiary{
+    background-color: transparent;
+    border: 1px solid #7bb410;
+}
+.download-button.tertiary:hover {
+    background-color:  #728c1e;
+}
+.download-button.tertiary:active{
+    background-color: #7bb410;
+}
 
 /* --------------------------------------------------------------------------
    6. Fixed label — sits above the layout; independent of card flex flow.
