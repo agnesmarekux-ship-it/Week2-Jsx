@@ -1,0 +1,3 @@
+{"sessionId":"882e92","runId":"run1","hypothesisId":"H1","location":"jsx-version.html:56","message":"App render started on JSX page","data":{"path":"/Users/agnes.marek/Desktop/Week2-Jsx/jsx-version.html","title":"Pricing Plans — JSX version"},"timestamp":1774603608369}
+{"sessionId":"882e92","runId":"run1","hypothesisId":"H2","location":"jsx-version.html:85","message":"Plans defined and intended cards computed","data":{"plansDefined":["Hobby","Pro","Enterprise"],"cardsRenderedByJSX":2},"timestamp":1774603608369}
+{"sessionId":"882e92","runId":"run1","hypothesisId":"H3","location":"jsx-version.html:103","message":"Rendered card count on screen","data":{"domCardCount":3,"cardTitles":["Hobby","Pro","Enterprise"]},"timestamp":1774603608385}

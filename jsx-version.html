@@ -53,6 +53,9 @@
         function App() {
             // In JSX, we separate DATA from PRESENTATION
             // These objects hold all the content for each pricing card
+            // #region agent log
+            fetch('http://127.0.0.1:7607/ingest/3ce4afd4-b967-47ab-9d15-6f038f0e3aa7',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'882e92'},body:JSON.stringify({sessionId:'882e92',runId:'run1',hypothesisId:'H1',location:'jsx-version.html:56',message:'App render started on JSX page',data:{path:window.location.pathname,title:document.title},timestamp:Date.now()})}).catch(()=>{});
+            // #endregion
             const hobbyPlan = {
                 title: 'Hobby',
                 price: 'Free',
@@ -72,7 +75,7 @@
                     'Maximum context windows',
                 ],
                 buttonText: 'Get Pro',
-                buttonVariant: 'primary',
+                buttonVariant: 'secondary',
             };
             const enterprisePlan = {
                 title: 'Enterprise',
@@ -82,6 +85,9 @@
                 buttonText: 'Contact sales',
                 buttonVariant: 'primary',
             };
+            // #region agent log
+            fetch('http://127.0.0.1:7607/ingest/3ce4afd4-b967-47ab-9d15-6f038f0e3aa7',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'882e92'},body:JSON.stringify({sessionId:'882e92',runId:'run1',hypothesisId:'H2',location:'jsx-version.html:85',message:'Plans defined and intended cards computed',data:{plansDefined:[hobbyPlan.title,proPlan.title,enterprisePlan.title],cardsRenderedByJSX:2},timestamp:Date.now()})}).catch(()=>{});
+            // #endregion
             return (
                 // <> is a React Fragment - it groups elements without adding extra HTML divs
                 <>
@@ -91,6 +97,7 @@
                         {/* This is the same as writing: title="Hobby" price="Free" includesText="Includes:" etc. */}
                         <PricingCard {...hobbyPlan} />
                         <PricingCard {...proPlan} />
+                        <PricingCard {...enterprisePlan} />
                     </div>
                 </>
             );
@@ -99,6 +106,11 @@
         // This tells React to render our App component into the <div id="root"> element
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
+        // #region agent log
+        requestAnimationFrame(() => {
+            fetch('http://127.0.0.1:7607/ingest/3ce4afd4-b967-47ab-9d15-6f038f0e3aa7',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'882e92'},body:JSON.stringify({sessionId:'882e92',runId:'run1',hypothesisId:'H3',location:'jsx-version.html:103',message:'Rendered card count on screen',data:{domCardCount:document.querySelectorAll('.card').length,cardTitles:Array.from(document.querySelectorAll('.card-title')).map((el)=>el.textContent)},timestamp:Date.now()})}).catch(()=>{});
+        });
+        // #endregion
     </script>
 </body>
 </html>
