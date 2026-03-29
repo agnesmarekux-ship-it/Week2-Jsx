@@ -22,29 +22,31 @@
             );
         }
 
-        // Same card UI, written as a JSX component (HTML-like syntax inside JavaScript)
-        // This component is reusable - we can create multiple cards by passing different data
-        function PricingCard({ title, price, includesText, features, buttonText, buttonVariant }) {
+        // Same card UI as index.html: .card-top wraps title, price row, and feature block; CTA sits below.
+        // priceAmount + pricePeriod mirror <span class="card-price-amount"> and <span class="card-price-period">.
+        function PricingCard({ title, priceAmount, pricePeriod, includesText, features, buttonText, buttonVariant }) {
             return (
-                // JSX uses "className" instead of "class" because "class" is a reserved word in JavaScript
                 <div className="card">
-                    {/* Curly braces { } let you insert JavaScript expressions into JSX */}
-                    <h1 className="card-title">{title}</h1>
-                    <p className="card-price">{price}</p>
-                    <div className="card-content">
-                        <p className="includes-text">{includesText}</p>
-                        <ul className="features-list">
-                            {/* .map() loops through the features array and creates a <li> for each item */}
-                            {features.map((feature, i) => (
-                                // "key" helps React track which items changed - using index (i) is OK for static lists
-                                <li key={i}>
-                                    <span className="checkmark">✓</span>
-                                    {feature}
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="card-top">
+                        <h3 className="card-title">{title}</h3>
+                        <p className="card-price">
+                            <span className="card-price-amount">{priceAmount}</span>
+                            {pricePeriod != null && pricePeriod !== '' && (
+                                <span className="card-price-period">{pricePeriod}</span>
+                            )}
+                        </p>
+                        <div className="card-content">
+                            <p className="includes-text">{includesText}</p>
+                            <ul className="features-list">
+                                {features.map((feature, i) => (
+                                    <li key={i}>
+                                        <span className="checkmark">✓</span>
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                    {/* Using our Button component instead of a raw <button> element */}
                     <Button label={buttonText} variant={buttonVariant} />
                 </div>
             );
@@ -58,15 +60,17 @@
             // #endregion
             const hobbyPlan = {
                 title: 'Hobby',
-                price: 'Free',
+                priceAmount: 'Free',
+                pricePeriod: null,
                 includesText: 'Includes:',
                 features: ['No credit card required', 'Limited Agent requests', 'Limited Tab completions'],
-                buttonText: 'Start for Free',
-                buttonVariant: 'tertiary',
+                buttonText: 'Download',
+                buttonVariant: 'secondary',
             };
             const proPlan = {
                 title: 'Pro',
-                price: '$20/mo.',
+                priceAmount: '$20',
+                pricePeriod: '/mo.',
                 includesText: 'Everything in Hobby, plus:',
                 features: [
                     'Extended limits on Agent',
@@ -79,11 +83,17 @@
             };
             const enterprisePlan = {
                 title: 'Enterprise',
-                price: 'Custom',
+                priceAmount: 'Custom',
+                pricePeriod: null,
                 includesText: 'Everything in Pro, plus:',
-                features: ['SSO and SCIM provisioning', 'Org-wide usage and admin controls', 'Priority support and onboarding', 'Invoice billing and custom terms'],
+                features: [
+                    'SSO and SCIM provisioning',
+                    'Org-wide usage and admin controls',
+                    'Priority support and onboarding',
+                    'Invoice billing and custom terms',
+                ],
                 buttonText: 'Contact sales',
-                buttonVariant: 'primary',
+                buttonVariant: 'secondary',
             };
             // #region agent log
             fetch('http://127.0.0.1:7607/ingest/3ce4afd4-b967-47ab-9d15-6f038f0e3aa7',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'882e92'},body:JSON.stringify({sessionId:'882e92',runId:'run1',hypothesisId:'H2',location:'jsx-version.html:85',message:'Plans defined and intended cards computed',data:{plansDefined:[hobbyPlan.title,proPlan.title,enterprisePlan.title],cardsRenderedByJSX:2},timestamp:Date.now()})}).catch(()=>{});
@@ -94,7 +104,7 @@
                     <p className="page-label"><strong>JSX version</strong> — same UI, built with components</p>
                     <div className="cards-container">
                         {/* The spread operator {...hobbyPlan} passes all object properties as individual props */}
-                        {/* This is the same as writing: title="Hobby" price="Free" includesText="Includes:" etc. */}
+                        {/* Same as writing: title="Hobby" priceAmount="Free" pricePeriod={null} ... */}
                         <PricingCard {...hobbyPlan} />
                         <PricingCard {...proPlan} />
                         <PricingCard {...enterprisePlan} />

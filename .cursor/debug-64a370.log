@@ -1,0 +1,6 @@
+{"sessionId":"64a370","runId":"post-fix","location":"jsx-version.html:App","message":"plan data pricePeriod fields","data":{"hobbyPricePeriod":null,"proPricePeriod":"/mo."},"timestamp":1774758529528,"hypothesisId":"H3"}
+{"sessionId":"64a370","runId":"post-fix","location":"jsx-version.html:PricingCard","message":"PricingCard bound pricePeriod","data":{"title":"Hobby","pricePeriod":null},"timestamp":1774758529529,"hypothesisId":"H1"}
+{"sessionId":"64a370","runId":"post-fix","location":"jsx-version.html:PricingCard","message":"PricingCard bound pricePeriod","data":{"title":"Pro","pricePeriod":"/mo."},"timestamp":1774758529530,"hypothesisId":"H1"}
+{"sessionId":"64a370","runId":"post-fix","location":"jsx-version.html:PricingCard","message":"PricingCard bound pricePeriod","data":{"title":"Hobby","pricePeriod":null},"timestamp":1774758534933,"hypothesisId":"H1"}
+{"sessionId":"64a370","runId":"post-fix","location":"jsx-version.html:App","message":"plan data pricePeriod fields","data":{"hobbyPricePeriod":null,"proPricePeriod":"/mo."},"timestamp":1774758534933,"hypothesisId":"H3"}
+{"sessionId":"64a370","runId":"post-fix","location":"jsx-version.html:PricingCard","message":"PricingCard bound pricePeriod","data":{"title":"Pro","pricePeriod":"/mo."},"timestamp":1774758534934,"hypothesisId":"H1"}

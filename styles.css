@@ -21,15 +21,16 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   3. Card row — flex row, gap = space between cards, nowrap keeps one line.
+   3. Card row — flex row with wrap so three cards stay visible on narrow viewports.
    -------------------------------------------------------------------------- */
 .cards-container {
     display: flex;
     flex-direction: row;
     gap: 24px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+    max-width: 100%;
 }
 
 /* --------------------------------------------------------------------------
